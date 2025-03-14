@@ -1,0 +1,44 @@
+.container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color:#000;
+  }
+  
+  .list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+  }
+  
+  .listItem {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    text-align: center;
+  }
+  
+  .profile {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5px;
+  }
+  
+  .name {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+  }
+  
+  .character {
+    font-size: 0.8rem;
+    color: #777;
+  }

@@ -1,0 +1,79 @@
+.container {
+    padding: 20px;
+  }
+  
+  .backButton {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .movieCard {
+    display: flex;
+    gap: 20px;
+    color:#000;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .poster {
+    width: 200px;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .info {
+    flex-grow: 1;
+  }
+  
+  .title {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .tagline {
+    font-style: italic;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .overview {
+    line-height: 1.6;
+  }
+  
+  .detailsNav {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .detailsNav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .detailsNav a.activeLink {
+    background-color: #fdd835;
+    color: white;
+    border-color: #fdd835;
+  }
+  
+  .detailsContent {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color:#000 !important;
+  }
