@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, useLocation, Link, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import styles from './MovieDetailsPage.module.css';
@@ -10,6 +10,9 @@ function MovieDetailsPage() {
   const [movieDetails, setMovieDetails] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
+  
+  // Ініціалізація useRef значенням location.state
+  const backLinkLocationRef = useRef(location.state?.from || '/movies');
 
   useEffect(() => {
     async function fetchMovieDetails() {
@@ -22,16 +25,12 @@ function MovieDetailsPage() {
         console.error('Помилка отримання деталей фільму:', error);
       }
     }
-
     fetchMovieDetails();
   }, [movieId]);
 
   const handleGoBack = () => {
-    if (location.state?.from) {
-      navigate(-1);
-    } else {
-      navigate('/movies', { replace: true });
-    }
+    // Використовуємо значення зі збереженого useRef для навігації назад
+    navigate(backLinkLocationRef.current);
   };
 
   if (!movieDetails) {
@@ -60,10 +59,18 @@ function MovieDetailsPage() {
         </div>
       </div>
       <div className={styles.detailsNav}>
-        <Link to={`/movies/${movieId}/cast`} className={({ isActive }) => isActive ? styles.activeLink : undefined}>
+        <Link 
+          to={`/movies/${movieId}/cast`} 
+          state={{ from: backLinkLocationRef.current }}
+          className={({ isActive }) => isActive ? styles.activeLink : undefined}
+        >
           Актори
         </Link>
-        <Link to={`/movies/${movieId}/reviews`} className={({ isActive }) => isActive ? styles.activeLink : undefined}>
+        <Link 
+          to={`/movies/${movieId}/reviews`} 
+          state={{ from: backLinkLocationRef.current }}
+          className={({ isActive }) => isActive ? styles.activeLink : undefined}
+        >
           Відгуки
         </Link>
       </div>
